@@ -5,7 +5,7 @@ function updateGamma(angle) {
 }
 
 function onDeviceOrientation({alpha = 0, beta = 0, gamma = 0}) {
-    updateGamma(gamma);
+    updateGamma(-gamma);
 }
 
 window.addEventListener('deviceorientation', onDeviceOrientation);
