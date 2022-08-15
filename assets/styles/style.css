@@ -1,0 +1,62 @@
+:root {
+    --square-size: 200px;
+    --alpha: 0deg;
+    --beta: 0deg;
+    --gamma: 0deg;
+    --square-margin: 10px;
+    --depth: 50px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+}
+
+.perspective-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transform: rotateY(var(--gamma));
+}
+
+.block {
+    position: absolute;
+    display: inline-block;
+    width: var(--square-size);
+    height: var(--square-size);
+    background-color: red;
+    margin-left: calc(50vw - var(--square-size) / 2);
+    margin-top: calc(50vh - var(--square-size) / 2);
+    border: 4px solid black;
+}
+
+.block.center {
+    background-color: blue;
+    z-index: 1;
+    transform: translateZ(var(--depth));
+}
+
+.block.ul {
+    transform: translate(calc(-1 * var(--square-size) / 2 - var(--square-margin)), calc(-1 * var(--square-size) / 2 - var(--square-margin))) translateZ(calc(-1 * var(--depth)));
+}
+
+.block.ur {
+    transform: translate(calc(var(--square-size) / 2 + var(--square-margin)), calc(-1 * var(--square-size) / 2 - var(--square-margin))) translateZ(calc(-1 * var(--depth)));
+}
+
+.block.bl {
+    transform: translate(calc(-1 * var(--square-size) / 2 - var(--square-margin)), calc(var(--square-size) / 2 + var(--square-margin))) translateZ(calc(-1 * var(--depth)));
+}
+
+.block.br {
+    transform: translate(calc(var(--square-size) / 2 + var(--square-margin)), calc(var(--square-size) / 2 + var(--square-margin))) translateZ(calc(-1 * var(--depth)));
+}
